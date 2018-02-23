@@ -1,0 +1,11 @@
+{
+	"gemName": "swiftpos_api",
+	"moduleName": "SwiftApi",
+	"gemVersion": "1.0.0",
+	"gemHomepage": "http://www.webflex.com.au/",
+	"gemSummary": "Ruby SwiftPOS API Client",
+	"gemDescription": "Integrate the SwiftPOS Api into the mobile backend",
+	"gemAuthor":"Jeffrey Borg",
+	"gemAuthorEmail":"jeffrey@webflex.com.au"
+}
+
