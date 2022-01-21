@@ -63,6 +63,7 @@ module SwiftApi
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
       header_params[:'ApiKey'] = api_key
+      header_params = header_params.merge(opts[:'headers']) if !opts[:'headers'].nil? 
 
       # form parameters
       form_params = {}

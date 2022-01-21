@@ -53,10 +53,12 @@ module SwiftApi
       query_params[:'userId'] = opts[:'user_id'] if !opts[:'user_id'].nil?
       query_params[:'password'] = opts[:'password'] if !opts[:'password'].nil?
 
-      # header parameters
-      header_params = opts[:'headers'] if !opts[:'headers'].nil? 
+      # header parameters    
+      header_params = {}
+      
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      header_params = header_params.merge(opts[:'headers']) if !opts[:'headers'].nil? 
 
       # form parameters
       form_params = {}
