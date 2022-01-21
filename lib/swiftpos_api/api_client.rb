@@ -121,6 +121,9 @@ module SwiftApi
 
       end
       
+       # set proxy, if provided
+      req_opts[:proxy] = proxy_params if proxy_params
+      req_opts[:proxyuserpwd] = proxyuserpwd_params if proxyuserpwd_params
 
       # set custom cert, if provided
       req_opts[:cainfo] = @config.ssl_ca_cert if @config.ssl_ca_cert
