@@ -93,6 +93,8 @@ module SwiftApi
       header_params = @default_headers.merge(opts[:header_params] || {})
       query_params = opts[:query_params] || {}
       form_params = opts[:form_params] || {}
+      proxy_params = opts[:proxy_params] || {}
+      proxyuserpwd_params = opts[:proxyuserpwd_params] || {}
 
       update_params_for_auth! header_params, query_params, opts[:auth_names]
 
@@ -100,6 +102,8 @@ module SwiftApi
       _verify_ssl_host = @config.verify_ssl_host ? 2 : 0
 
       req_opts = {
+        :proxy => proxy_params,
+        :proxyuserpwd => proxyuserpwd_params,
         :method => http_method,
         :headers => header_params,
         :params => query_params,
