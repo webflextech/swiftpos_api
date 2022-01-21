@@ -62,16 +62,21 @@ module SwiftApi
       header_params = {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
-      header_params[:'ApiKey'] = api_key
-      header_params = header_params.merge(opts[:'headers']) if !opts[:'headers'].nil? 
+      header_params[:'ApiKey'] = api_key     
 
       # form parameters
       form_params = {}
+
+      # proxy parameters
+      proxy_params = opts[:'proxy'] if !opts[:'proxy'].nil?  
+      proxyuserpwd_params = opts[:'proxyuserpwd'] if !opts[:'proxyuserpwd'].nil? 
 
       # http body (model)
       post_body = nil
       auth_names = []
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :proxy_params => proxy_params,
+        :proxyuserpwd_params => proxyuserpwd_params,
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,

@@ -63,8 +63,8 @@ module SwiftApi
       form_params = {}
 
       # proxy parameters
-      proxy_params = opts[:proxy_params] || {}
-      proxyuserpwd_params = opts[:proxyuserpwd_params] || {}
+      proxy_params = opts[:'proxy'] if !opts[:'proxy'].nil?  
+      proxyuserpwd_params = opts[:'proxyuserpwd'] if !opts[:'proxyuserpwd'].nil?
 
       # http body (model)
       post_body = nil

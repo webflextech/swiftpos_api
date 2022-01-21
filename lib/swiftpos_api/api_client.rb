@@ -93,17 +93,15 @@ module SwiftApi
       header_params = @default_headers.merge(opts[:header_params] || {})
       query_params = opts[:query_params] || {}
       form_params = opts[:form_params] || {}
-      proxy_params = opts[:proxy_params] || {}
-      proxyuserpwd_params = opts[:proxyuserpwd_params] || {}
+      proxy_params = opts[:proxy_params] 
+      proxyuserpwd_params = opts[:proxyuserpwd_params] 
 
       update_params_for_auth! header_params, query_params, opts[:auth_names]
 
       # set ssl_verifyhosts option based on @config.verify_ssl_host (true/false)
       _verify_ssl_host = @config.verify_ssl_host ? 2 : 0
 
-      req_opts = {
-        :proxy => proxy_params,
-        :proxyuserpwd => proxyuserpwd_params,
+      req_opts = {        
         :method => http_method,
         :headers => header_params,
         :params => query_params,
@@ -115,6 +113,14 @@ module SwiftApi
         :sslkey => @config.key_file,
         :verbose => @config.debugging
       }
+
+      if(!proxy_params.nil?)
+        req_opts = req_opts.merge({
+          :proxy => proxy_params,
+          :proxyuserpwd => proxyuserpwd_params})
+
+      end
+      
 
       # set custom cert, if provided
       req_opts[:cainfo] = @config.ssl_ca_cert if @config.ssl_ca_cert
