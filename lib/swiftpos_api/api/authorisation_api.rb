@@ -27,8 +27,9 @@ module SwiftApi
     # @option opts [Integer] :user_id Clerk Id.
     # @option opts [String] :password Clerk Password.
     # @return [AuthorisationResponse]
-    def authorisation_get(opts = {})
-      data, _status_code, _headers = authorisation_get_with_http_info(opts)
+    def authorisation_get(opts = {}, headers)
+    # @return [AuthorisationResponse]
+      data, _status_code, _headers = authorisation_get_with_http_info(opts,headers)
       return data
     end
 
@@ -39,7 +40,7 @@ module SwiftApi
     # @option opts [Integer] :user_id Clerk Id.
     # @option opts [String] :password Clerk Password.
     # @return [Array<(AuthorisationResponse, Fixnum, Hash)>] AuthorisationResponse data, response status code and response headers
-    def authorisation_get_with_http_info(opts = {})
+    def authorisation_get_with_http_info(opts = {},headers)
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: AuthorisationApi.authorisation_get ..."
       end
@@ -53,7 +54,7 @@ module SwiftApi
       query_params[:'password'] = opts[:'password'] if !opts[:'password'].nil?
 
       # header parameters
-      header_params = {}
+      header_params = headers
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
 
